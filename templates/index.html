@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Global Cyber Threat Heatmap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Leaflet Styles -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <!-- Leaflet Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>🌍 Global Cyber Threat Heatmap</h1>
+      <p>Live feed of the latest cyber threats around the world.</p>
+    </header>
+
+    <!-- Filter Dropdown -->
+    <div class="filter-bar">
+      <label for="filter">Filter Threats:</label>
+      <select id="filter">
+        <option value="all">🌐 All</option>
+        <option value="cve">🧪 CVE</option>
+        <option value="malware">🦠 Malware</option>
+        <option value="brute">🔐 Brute Force</option>
+      </select>
+    </div>
+
+    <!-- Time Range Filter -->
+    <div class="time-filter">
+      <label for="timeRange">Time Window:</label>
+      <select id="timeRange">
+        <option value="1">🕐 Last 1 Hour</option>
+        <option value="3">⏱️ Last 3 Hours</option>
+        <option value="5" selected>🕔 Last 5 Hours</option>
+        <option value="24">🕛 Last 24 Hours</option>
+      </select>
+    </div>
+
+    <main class="main-grid">
+      <!-- Map Section -->
+      <div class="card map-section">
+        <h2>Threat Map</h2>
+        <div id="map"></div>
+      </div>
+
+      <!-- Feed Section -->
+      <div class="card feed-section">
+        <h2>Live Threat Feed</h2>
+        <div class="feed-meta">
+          <span id="threat-count">🛡️ Total Threats: 0</span>
+          <span id="last-updated">⏱ Last Updated: --:--:--</span>
+        </div>
+        <div id="severity-summary" class="severity-summary"></div>
+        <div id="feed"></div>
+      </div>
+
+      <!-- Country Summary -->
+      <div class="card country-summary">
+        <h2>🌎 Top Countries by Threat</h2>
+        <ul id="country-list"></ul>
+      </div>
+    </main>
+  </div>
+
+  <!-- Your Main JS -->
+  <script src="/static/js/map.js"></script>
+</body>
+</html>
