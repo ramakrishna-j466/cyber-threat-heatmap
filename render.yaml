@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: cyber-threat-heatmap
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python app.py"
+    envVars:
+      - key: FLASK_ENV
+        value: production
