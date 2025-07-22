@@ -12,6 +12,12 @@ def get_threats():
     with open('data/threats.json') as f:
         data = json.load(f)
     return jsonify(data)
+    
+@app.route("/update")
+def update_data():
+    os.system("python fetch_data.py")
+    return "Updated!"
+
 
 if __name__ == '__main__':
     app.run(debug=True)
